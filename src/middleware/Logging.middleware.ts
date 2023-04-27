@@ -3,10 +3,17 @@ import logger from '../utils/logger';
 
 export class LoggingMiddleware {
   static async receivedRequestMiddleware(ctx: Context, next: Next) {
-    logger.info(`Received request`, {
+    const meta: Record<string, unknown> = {
       path: ctx.request.path,
       headers: ctx.request.headers,
-    });
+      method: ctx.request.method,
+    };
+
+    if (ctx.request.method === 'POST') {
+      meta.body = ctx.request.body;
+    }
+
+    logger.info(`Received request`, meta);
 
     await next();
   }
