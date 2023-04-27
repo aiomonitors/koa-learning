@@ -13,10 +13,14 @@
     "postinstall": "modclean --run"
   },
   "dependencies": {
+    "@koa/router": "^12.0.0",
+    "koa": "^2.14.2",
     "modclean": "^3.0.0-beta.1",
     "winston": "^3.8.2"
   },
   "devDependencies": {
+    "@types/koa": "^2.13.6",
+    "@types/koa__router": "^12.0.0",
     "@types/node": "^16.4.0",
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
