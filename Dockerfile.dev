@@ -1,0 +1,18 @@
+FROM node:18-alpine
+
+WORKDIR /usr/app
+
+ENV NODE_ENV=development
+
+ENV TZ=America/New_York
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN apk add --update git
+
+COPY ./package.json .
+
+RUN yarn install
+
+COPY . .
+
+CMD ["yarn", "dev"]
