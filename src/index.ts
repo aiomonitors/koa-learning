@@ -1,5 +1,5 @@
 import Koa from 'koa';
-import Router from '@koa/router';
+import bodyParser from 'koa-bodyparser';
 import logger from './utils/logger';
 import { LoggingMiddleware } from './middleware/Logging.middleware';
 import { Version1Router } from './routes/v1';
@@ -14,6 +14,7 @@ const wait = async (ms: number) =>
     }, ms);
   });
 
+app.use(bodyParser());
 app.use(LoggingMiddleware.receivedRequestMiddleware);
 app.use(LoggingMiddleware.sentResponseMiddleware);
 app.use(v1.setupRoutes().routes());
