@@ -1,6 +1,6 @@
 import { Context, Next } from 'koa';
 import { ZodError } from 'zod';
-import { isTestBody } from '../types/v1';
+import { isTestBody } from '../types/v1.types';
 import { IndexBodySchema } from '../schemas/v1.schemas';
 
 export class Version1Controller {

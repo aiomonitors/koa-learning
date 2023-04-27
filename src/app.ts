@@ -1,7 +1,7 @@
 import Koa from 'koa';
 import bodyParser from 'koa-bodyparser';
 import { LoggingMiddleware } from './middleware/Logging.middleware';
-import { Version1Router } from './routes/v1';
+import { Version1Router } from './routes/v1.routes';
 
 export class AppServer {
   app = new Koa();
