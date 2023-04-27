@@ -1,3 +1,4 @@
+import { Version1Controller } from '../controllers/v1.controller';
 import { PrefixRouter } from '../shared/PrefixRouter';
 
 export class Version1Router extends PrefixRouter {
@@ -6,10 +7,9 @@ export class Version1Router extends PrefixRouter {
   }
 
   setupRoutes() {
-    this.router.get('/', (ctx) => {
-      ctx.body = 'Hello';
-      ctx.status = 200;
-    });
+    this.router.use(Version1Controller.errorHandler);
+    this.router.get('/', Version1Controller.getIndex);
+    this.router.post('/', Version1Controller.postIndex);
 
     return this;
   }
