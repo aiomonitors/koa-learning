@@ -4,6 +4,7 @@
  */
 import { z } from 'zod';
 import { IndexBodySchema } from '../schemas/v1.schemas';
+import { SchemaTypeGuard } from '../shared/Validation';
 
 /**
  * The type for a body POSTed to /v1
@@ -15,5 +16,4 @@ export type IndexBody = z.infer<typeof IndexBodySchema>;
  * @param body The body of the request
  * @returns Boolean indicating if the body satisfies {@link IndexBody}
  */
-export const isTestBody = (body: unknown): body is IndexBody =>
-  IndexBodySchema.safeParse(body).success;
+export const isTestBody = SchemaTypeGuard(IndexBodySchema);
