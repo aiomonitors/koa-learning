@@ -30,6 +30,8 @@ module.exports = {
     'import/no-named-as-default': 0,
     'import/default': 0,
     'import/prefer-default-export': 0,
+    'no-shadow': 'off',
+    '@typescript-eslint/no-shadow': ['error', , { ignoreTypeValueShadow: true }],
   },
   settings: {
     'import/ignore': ['.svg'],
